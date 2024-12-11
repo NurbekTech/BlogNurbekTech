@@ -1,11 +1,18 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
+from blog.models import Post
 
 # Create your views here.
+menu = ['menu1', 'menu2', 'menu3', 'menu4']
 
 
 def index(request):
-    return HttpResponse('<h1>Hello Django!</h1>')
+    posts = Post.objects.all()
+    return render(request, 'blog/index.html', {'title': 'Django', 'menu': menu, 'posts': posts})
+
+
+def about(request):
+    return render(request, 'blog/about.html', {'title': 'Django', 'menu': menu})
 
 
 def pageNotFound(request, exception):
