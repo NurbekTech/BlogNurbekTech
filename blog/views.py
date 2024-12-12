@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseNotFound
 from blog.models import Post
 
 # Create your views here.
-menu = ['menu1', 'menu2', 'menu3', 'menu4']
+menu = ['Блог', 'Проекты']
 
 
 def index(request):
