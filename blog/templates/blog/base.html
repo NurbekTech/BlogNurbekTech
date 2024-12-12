@@ -13,12 +13,12 @@
     <header class="header">
         <div class="container">
             <div class="header-nav">
-                <a href="#" class="logo">NurbekTech</a>
+                <a href="{% url 'home'%}" class="logo">NurbekTech</a>
                 <nav class="nav">
                     {% block mainmenu %}
                     <ul class="nav-list">
                         {% for m in menu %}
-                        <li class="nav-item"><a href="#" class="nav-link">{{m}}</a></li>
+                        <li class="nav-item"><a href="{% url m.url_name %}" class="nav-link">{{m.name}}</a></li>
                         {% endfor %}
                     </ul>
                     {% endblock mainmenu %}

@@ -1,16 +1,4 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-    <h1>Index HTML {{title}}</h1>
-
-    <ul>
-        {% for p in posts %}
-            <li>
-                <h2>{{p.title}}</h2>
-                <p>{{p.content}}</p>
-                <hr>
-            </li>
-        {% endfor %}
-    </ul>
-
 {% endblock content %}
