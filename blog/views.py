@@ -33,6 +33,9 @@ def project(request):
     }
     return render(request, 'blog/project.html', context=data)
 
+def show_post(request, post_id):
+    return HttpResponse(f'Show Post {post_id}')
+
 
 def pageNotFound(request, exception):
     return HttpResponseNotFound('<h1>Page Not Found</h1>')

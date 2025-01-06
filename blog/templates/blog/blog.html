@@ -4,5 +4,6 @@
     <h1>About HTML</h1>
     {% for p in posts %}
         <h2>{{p.title}}</h2>
+        <p><a href="{{ p.get_absolute_url }}">show post</a></p>
     {% endfor %}
 {% endblock content %}
