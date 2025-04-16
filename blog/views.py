@@ -1,13 +1,16 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseNotFound
 
+from blog.models import Post
+
 # Create your views here.
 
 menu = ["Главная", "Блог", "О нас"]
 
 
 def home(request):
-    data = {"title": "Негізгі бет", "menu": menu}
+    posts = Post.objects.all()
+    data = {"title": "Негізгі бет", "menu": menu, "posts": posts}
     return render(request, "blog/index.html", context=data)
 
 
