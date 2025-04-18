@@ -1,3 +1,23 @@
+@import "./reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
 body{
-    margin: 0;
+    font-family: "Roboto Mono", monospace;
+}
+.container{
+    width: 100%;
+    max-width: 770px;
+    margin: 0 auto;
+}
+
+.header{
+    padding: 12px 0;
+}
+.header__inner{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav{
+    font-size: 16px;
 }

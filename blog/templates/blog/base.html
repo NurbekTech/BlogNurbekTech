@@ -8,13 +8,22 @@
     <title>NurbekTech | {{title}}</title>
 </head>
 <body>
-    {% block mainmenu %}
-        <ul>
-            {% for m in menu %}
-                <li>{{m}}</li>
-            {% endfor %}
-        </ul>
-    {% endblock mainmenu %}
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo">
+                    <a href="{% url "home" %}">NurbekTech</a>
+                </div>
+                <nav class="nav">
+                    {% block mainmenu %}
+                        {% for m in menu %}
+                            <a href="#" class="nav__link">{{m}}</a>
+                        {% endfor %}
+                    {% endblock mainmenu %}
+                </nav>
+            </div>
+        </div>
+    </header>
 
     {% block content %}{% endblock content %}
 </body>
