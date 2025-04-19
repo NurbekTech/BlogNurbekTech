@@ -5,7 +5,11 @@ from blog.models import Post
 
 # Create your views here.
 
-menu = ["Главная", "Блог", "О нас"]
+menu = [
+    {"title": "Блог", "url_name": "blog"},
+    {"title": "Проекты", "url_name": "project"},
+    {"title": "О нас", "url_name": "about"},
+]
 
 
 def home(request):
@@ -14,9 +18,21 @@ def home(request):
     return render(request, "blog/index.html", context=data)
 
 
+def blog(request):
+    return HttpResponse("Blog")
+
+
+def project(request):
+    return HttpResponse("Project")
+
+
 def about(request):
     data = {"title": "О нас", "menu": menu}
     return render(request, "blog/about.html", context=data)
+
+
+def show_post(request, post_id):
+    return HttpResponse(f"Post {post_id}")
 
 
 def page_not_found(request, exception):
