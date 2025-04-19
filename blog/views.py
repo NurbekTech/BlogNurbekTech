@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseNotFound
 
-from blog.models import Post
+from blog.models import Post, Category
 
 # Create your views here.
 
@@ -19,7 +19,10 @@ def home(request):
 
 
 def blog(request):
-    return HttpResponse("Blog")
+    posts = Post.objects.all()
+    cats = Category.objects.all()
+    data = {"title": "Блог", "menu": menu, "posts": posts, "cats": cats}
+    return render(request, "blog/blog.html", context=data)
 
 
 def project(request):
@@ -33,6 +36,13 @@ def about(request):
 
 def show_post(request, post_id):
     return HttpResponse(f"Post {post_id}")
+
+
+def show_category(request, cat_id):
+    posts = Post.objects.filter(cat_id=cat_id)
+    cats = Category.objects.all()
+    data = {"title": "Блог", "menu": menu, "posts": posts, "cats": cats}
+    return render(request, "blog/blog.html", context=data)
 
 
 def page_not_found(request, exception):

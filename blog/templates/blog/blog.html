@@ -1,0 +1,20 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    <h1>{{title}}</h1>
+    
+    {% for c in cats %}
+        <a href="{{ c.get_absolute_url }}">{{c.name}}</a>
+    {% endfor %}
+                
+    <ul>
+        {% for p in posts %}
+            <li>
+                <h2>{{p.title}}</h2>
+                <p>{{p.content}}</p>
+                <a href="{{ p.get_absolute_url }}">Ash meni</a>
+                <hr>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
