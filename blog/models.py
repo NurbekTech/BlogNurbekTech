@@ -12,11 +12,11 @@ class Post(models.Model):
     is_published = models.BooleanField(default=True)
 
     class Meta:
-        verbose_name = "Post"
-        verbose_name_plural = "Posts"
+        verbose_name = "Пост"
+        verbose_name_plural = "Посты"
 
     def __str__(self):
-        return self.name
+        return self.title
 
     def get_absolute_url(self):
         return reverse("Post_detail", kwargs={"pk": self.pk})
