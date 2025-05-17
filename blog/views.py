@@ -3,14 +3,20 @@ from django.http import HttpResponse, HttpResponseNotFound
 from blog.models import *
 
 # Create your views here.
-menu = ["Home", "Blog", "About"]
+menu = [
+    {"title": "Blog", "url_name": "blog"},
+    {"title": "About", "url_name": "about"},
+]
 
 
 def home(request):
     posts = Post.objects.all()
-    return render(
-        request, "blog/home.html", {"menu": menu, "title": "Home", "posts": posts}
-    )
+    data = {"menu": menu, "posts": posts, "title": "Home"}
+    return render(request, "blog/home.html", context=data)
+
+
+def blog(request):
+    return HttpResponse("Blog")
 
 
 def about(request):
