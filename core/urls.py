@@ -23,3 +23,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.home),
 ]
+
+handler404 = views.page_not_found
